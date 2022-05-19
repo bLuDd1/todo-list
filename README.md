@@ -1,2 +1,1 @@
-# course-work
-To-Do List as Course Work
+# To-Do List as Course Work
