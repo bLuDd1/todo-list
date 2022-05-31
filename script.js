@@ -14,7 +14,13 @@ class Task {
   }
 }
 
+const updateStorage = () => {
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+};
+
 // Adding new tasks to array
 addTask.addEventListener('click', () => {
   tasks.push(new Task(descriptionTask.value));
+  updateStorage();
 });
+
