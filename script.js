@@ -19,8 +19,9 @@ const updateStorage = () => {
 };
 
 // Adding new tasks to array
-addTask.addEventListener('click', () => {
+const addNewTask = () => {
   tasks.push(new Task(descriptionTask.value));
   updateStorage();
-});
+};
 
+addTask.onclick = addNewTask;
