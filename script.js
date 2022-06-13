@@ -11,6 +11,8 @@ if (!localStorage.tasks) {
   tasks = JSON.parse(localStorage.getItem('tasks'));
 }
 
+let todoElems = [];
+
 // Creating new tasks
 class Task {
   constructor(description) {
@@ -25,27 +27,63 @@ const updateStorage = () => {
 
 // Shows tasks at page screen
 const createTemplate = (task, index) =>
-  `<div class="tasks-items">
+  `<div class="tasks-items ${task.completed ? 'checked' : ''}">
                 <div class="description">${task.description}</div>
                 <div class="buttons">
-                    <input class="btn-complete" type="checkbox">
-                    <button class="btn-delete">Delete</button>
+                    <input onclick="completeTask(${index})" 
+                    class="btn-complete" type="checkbox" 
+                    ${task.completed ? 'checked' : ''}>
+                    <button onclick="deleteTask(${index})" 
+                    class="btn-delete">Delete</button>
                 </div>
             </div>`
   ;
 
+const filterTasks = () => {
+  const activeTasks = tasks.length && tasks.filter(item => item.completed === false);
+  const completedTasks = tasks.length && tasks.filter(item => item.completed === true);
+  tasks = [...activeTasks, ...completedTasks];
+};
+
 const fillTodosCont = () => {
   todosContainer.innerHTML = '';
-  if (tasks.length > 0) {
+  if (tasks.length !== 0) {
+    filterTasks();
     tasks.map((item, index) => {
       todosContainer.innerHTML += createTemplate(item, index);
     });
+    todoElems = document.querySelectorAll('.tasks-items');
   }
 };
-// Adding new tasks to array
 
-addTask.onclick = () => {
-  tasks.push(new Task(descriptionTask.value));
+fillTodosCont();
+
+const usableFunctions = () => {
   updateStorage();
   fillTodosCont();
+};
+
+const completeTask = index => {
+  tasks[index].completed = !tasks[index].completed;
+  if (tasks[index].completed) {
+    todoElems[index].classList.add('checked');
+  } else {
+    todoElems[index].classList.remove('checked');
+  }
+  usableFunctions();
+};
+
+const deleteTask = index => {
+  todoElems[index].classList.add('delition');
+  setTimeout(() => {
+    tasks.splice(index, 1);
+    usableFunctions();
+  }, 500);
+};
+
+// Adding new tasks to array
+addTask.onclick = () => {
+  tasks.push(new Task(descriptionTask.value));
+  usableFunctions();
+  descriptionTask.value = '';
 };

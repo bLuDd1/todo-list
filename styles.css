@@ -51,7 +51,7 @@ h1 {
     cursor: pointer;
 }
 
-.todo-item {
+.tasks-items {
     display: flex;
     width: 500px;
     min-height: 20px;
@@ -61,12 +61,12 @@ h1 {
     background-color: white;
 }
 
-.todo-item.checked {
+.tasks-items.checked {
     background-color: red;
     opacity: 0.5;
 }
 
-.todo-item.delition {
+.tasks-items.delition {
     animation: opacity 1s ease-in-out;
 }
 
