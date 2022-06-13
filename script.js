@@ -2,7 +2,7 @@
 
 const addTask = document.getElementById('add-task');
 const descriptionTask = document.getElementById('task');
-const todosContainer = document.getElementsByClassName('todos-container');
+const todosContainer = document.querySelector('.todos-container');
 
 let tasks;
 if (!localStorage.tasks) {
@@ -24,7 +24,7 @@ const updateStorage = () => {
 };
 
 // Shows tasks at page screen
-const createTemplate = task =>
+const createTemplate = (task, index) =>
   `<div class="tasks-items">
                 <div class="description">${task.description}</div>
                 <div class="buttons">
@@ -37,17 +37,15 @@ const createTemplate = task =>
 const fillTodosCont = () => {
   todosContainer.innerHTML = '';
   if (tasks.length > 0) {
-    for (const key of tasks) {
-      todosContainer.innerHTML = createTemplate(key);
-    }
+    tasks.map((item, index) => {
+      todosContainer.innerHTML += createTemplate(item, index);
+    });
   }
 };
-
 // Adding new tasks to array
-const addNewTask = () => {
+
+addTask.onclick = () => {
   tasks.push(new Task(descriptionTask.value));
   updateStorage();
   fillTodosCont();
 };
-
-addTask.onclick = addNewTask;

@@ -35,13 +35,13 @@ h1 {
     height: 25px;
 }
 
-.button-container {
+.buttons {
     width: 20%;
     display: flex;
     justify-content: flex-end;
 }
 
-.button-container button {
+.buttons button {
     width: 80%;
     background-color: azure;
     color: gray;
@@ -74,7 +74,8 @@ h1 {
     width: 80%;
     display: flex;
     align-items: center;
-    color: orange;
+    color: white;
+    background-color: white;
 }
 
 .buttons {
