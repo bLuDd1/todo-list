@@ -1,0 +1,104 @@
+html, body {
+    margin: 0;
+    height: 100%;
+    background-color: orange;
+}
+
+h1 {
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.todo-container {
+    display: flex;
+    width: 500px;
+    min-height: 40px;
+    align-items: center;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.input-container {
+    width: 80%;
+}
+
+.input-container input {
+    width: 100%;
+    height: 25px;
+}
+
+.button-container {
+    width: 20%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.button-container button {
+    width: 80%;
+    background-color: azure;
+    color: gray;
+    outline: none;
+    border: 1px solid black;
+    height: 25px;
+    cursor: pointer;
+}
+
+.todo-item {
+    display: flex;
+    width: 500px;
+    min-height: 20px;
+    border: 1px solid black;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: white;
+}
+
+.todo-item.checked {
+    background-color: red;
+    opacity: 0.5;
+}
+
+.todo-item.delition {
+    animation: opacity 1s ease-in-out;
+}
+
+.task {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    color: orange;
+}
+
+.buttons {
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.buttons input {
+    outline: none;
+    border: none;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    height: 25px;
+    border-radius: 5px;
+}
+
+@keyframes opacity {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
