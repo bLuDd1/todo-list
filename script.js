@@ -40,8 +40,8 @@ const createTemplate = (task, index) =>
   ;
 
 const filterTasks = () => {
-  const activeTasks = tasks.length && tasks.filter(item => item.completed === false);
-  const completedTasks = tasks.length && tasks.filter(item => item.completed === true);
+  const activeTasks = tasks.filter((item) => item.completed === false);
+  const completedTasks = tasks.filter((item) => item.completed === true);
   tasks = [...activeTasks, ...completedTasks];
 };
 
@@ -49,41 +49,41 @@ const fillTodosCont = () => {
   todosContainer.innerHTML = '';
   if (tasks.length !== 0) {
     filterTasks();
-    tasks.map((item, index) => {
+    for (const [index, item] of tasks.entries()) {
       todosContainer.innerHTML += createTemplate(item, index);
-    });
+    }
     todoElems = document.querySelectorAll('.tasks-items');
   }
 };
 
 fillTodosCont();
 
-const usableFunctions = () => {
+const coupleFunctions = () => {
   updateStorage();
   fillTodosCont();
 };
 
-const completeTask = index => {
+const completeTask = (index) => {
   tasks[index].completed = !tasks[index].completed;
   if (tasks[index].completed) {
     todoElems[index].classList.add('checked');
   } else {
     todoElems[index].classList.remove('checked');
   }
-  usableFunctions();
+  coupleFunctions();
 };
 
-const deleteTask = index => {
+const deleteTask = (index) => {
   todoElems[index].classList.add('delition');
   setTimeout(() => {
     tasks.splice(index, 1);
-    usableFunctions();
+    coupleFunctions();
   }, 500);
 };
 
 // Adding new tasks to array
 addTask.onclick = () => {
   tasks.push(new Task(descriptionTask.value));
-  usableFunctions();
+  coupleFunctions();
   descriptionTask.value = '';
 };
