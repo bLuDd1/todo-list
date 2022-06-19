@@ -91,14 +91,14 @@ addTask.onclick = () => {
 };
 
 const zeroFormat = (value) => {
-  if (value < 10) { // Months that starts with '0'
+  if (value < 10) { // Dates and months that starts with '0'
     value = '0' + value;
   }
   return value;
 };
 
 // Shows current date
-const showCurrentDate = () => {
+const getCurrentDate = () => {
   const currentDate = new Date();
   const day = zeroFormat(currentDate.getDate());
   const month = zeroFormat(currentDate.getMonth() + 1);
@@ -106,9 +106,9 @@ const showCurrentDate = () => {
   return day + '.' + month + '.' + year;
 };
 
-currentDate.innerHTML = showCurrentDate();
+currentDate.innerHTML = getCurrentDate();
 
-const showCurrentDay = () => {
+const getCurrentDay = () => {
   const days = [
     'Sunday',
     'Monday',
@@ -123,4 +123,4 @@ const showCurrentDay = () => {
   return days[currentDay];
 };
 
-currentDay.innerHTML = showCurrentDay();
+currentDay.innerHTML = getCurrentDay();
