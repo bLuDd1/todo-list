@@ -3,6 +3,8 @@
 const addTask = document.getElementById('add-task');
 const descriptionTask = document.getElementById('task');
 const todosContainer = document.querySelector('.todos-container');
+const currentDate = document.querySelector('.current-date');
+const currentDay = document.querySelector('.current-day');
 
 let tasks;
 if (!localStorage.tasks) {
@@ -87,3 +89,38 @@ addTask.onclick = () => {
   coupleFunctions();
   descriptionTask.value = '';
 };
+
+const zeroFormat = (value) => {
+  if (value < 10) { // Months that starts with '0'
+    value = '0' + value;
+  }
+  return value;
+};
+
+// Shows current date
+const showCurrentDate = () => {
+  const currentDate = new Date();
+  const day = zeroFormat(currentDate.getDate());
+  const month = zeroFormat(currentDate.getMonth() + 1);
+  const year = zeroFormat(currentDate.getFullYear());
+  return day + '.' + month + '.' + year;
+};
+
+currentDate.innerHTML = showCurrentDate();
+
+const showCurrentDay = () => {
+  const days = [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday'
+  ];
+  const date = new Date();
+  const currentDay = date.getDay();
+  return days[currentDay];
+};
+
+currentDay.innerHTML = showCurrentDay();
