@@ -5,8 +5,7 @@ const descriptionTask = document.getElementById('task');
 const todosContainer = document.querySelector('.todos-container');
 const currentDate = document.querySelector('.current-date');
 const currentDay = document.querySelector('.current-day');
-const dateInput = document.getElementById('date');
-const timeInput = document.getElementById('time');
+const backgroundButton = document.getElementById('button-background');
 
 let tasks;
 if (!localStorage.tasks) {
@@ -40,7 +39,6 @@ const createTemplate = (task, index) =>
                     <button onclick="deleteTask(${index})" 
                     class="btn-delete">Delete</button>
                 </div>
-                <div class="date-output"></div>
             </div>`
   ;
 
@@ -128,7 +126,15 @@ const getCurrentDay = () => {
 
 currentDay.innerHTML = getCurrentDay();
 
-dateInput.addEventListener('input', event => {
-  const dateOutput = document.querySelector('.date-output');
-  dateOutput.innerHTML = dateInput.value;
+const colors = [
+  'red',
+  'royalblue',
+  'lightpink',
+  'orange'
+];
+
+const getRandomNumber = () => Math.floor(Math.random() * colors.length);
+
+backgroundButton.addEventListener('click', () => {
+  document.body.style.backgroundColor = colors[getRandomNumber()];
 });
