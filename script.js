@@ -127,10 +127,12 @@ const getCurrentDay = () => {
 currentDay.innerHTML = getCurrentDay();
 
 const colors = [
-  'red',
-  'royalblue',
-  'lightpink',
-  'orange'
+  '#E7C950',
+  '#D4AC0D',
+  '#884EA0',
+  '#7F8C8D',
+  '#AF601A',
+  '#5499C7'
 ];
 
 const getRandomNumber = () => Math.floor(Math.random() * colors.length);
