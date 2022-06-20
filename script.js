@@ -5,6 +5,8 @@ const descriptionTask = document.getElementById('task');
 const todosContainer = document.querySelector('.todos-container');
 const currentDate = document.querySelector('.current-date');
 const currentDay = document.querySelector('.current-day');
+const dateInput = document.getElementById('date');
+const timeInput = document.getElementById('time');
 const backgroundButton = document.getElementById('button-background');
 
 let tasks;
@@ -18,9 +20,11 @@ let todoElems = [];
 
 // Creating new tasks
 class Task {
-  constructor(description) {
+  constructor(description, date, time) {
     this.description = description;
     this.completed = false;
+    this.date = date;
+    this.time = time;
   }
 }
 
@@ -39,6 +43,8 @@ const createTemplate = (task, index) =>
                     <button onclick="deleteTask(${index})" 
                     class="btn-delete">Delete</button>
                 </div>
+                <div id="date-output">${task.date}</div>
+                <div id="time-output">${task.time}</div>
             </div>`
   ;
 
