@@ -87,14 +87,19 @@ const deleteTask = (index) => {
   }, 500);
 };
 
+const inputs = () => {
+  const inputsValues = document.querySelectorAll('.task-input');
+  inputsValues.map((inputsValues) => {
+    inputsValues.value = '';
+  });
+};
+
 // Adding new tasks to array
 addTask.onclick = () => {
   tasks.push(new Task(descriptionTask.value, dateInput.value, timeInput.value));
   updateStorage();
   fillTodosCont();
-  descriptionTask.value = '';
-  dateInput.value = '';
-  timeInput.value = '';
+  inputs();
 };
 
 const zeroFormat = (value) => {
@@ -141,8 +146,8 @@ const colors = [
   '#5499C7'
 ];
 
-const getRandomNumber = () => Math.floor(Math.random() * colors.length);
+const getRandomNumber = (value) => Math.floor(Math.random() * value);
 
-backgroundButton.addEventListener('click', () => {
-  document.body.style.backgroundColor = colors[getRandomNumber()];
-});
+backgroundButton.onclick = () => {
+  document.body.style.backgroundColor = colors[getRandomNumber(colors.length)];
+};
