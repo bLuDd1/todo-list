@@ -87,11 +87,11 @@ const deleteTask = (index) => {
   }, 500);
 };
 
-const inputs = () => {
-  const inputsValues = document.querySelectorAll('.task-input');
-  inputsValues.map((inputsValues) => {
-    inputsValues.value = '';
-  });
+const resetInputs = () => {
+  const inputs = document.querySelectorAll('.task-input');
+  for (const input of inputs) {
+    input.value = '';
+  }
 };
 
 // Adding new tasks to array
@@ -99,7 +99,7 @@ addTask.onclick = () => {
   tasks.push(new Task(descriptionTask.value, dateInput.value, timeInput.value));
   updateStorage();
   fillTodosCont();
-  inputs();
+  resetInputs();
 };
 
 const zeroFormat = (value) => {
