@@ -137,17 +137,16 @@ const getCurrentDay = () => {
 
 currentDay.innerHTML = getCurrentDay();
 
-const colors = [
-  '#E7C950',
-  '#D4AC0D',
-  '#884EA0',
-  '#7F8C8D',
-  '#AF601A',
-  '#5499C7'
-];
-
 const getRandomNumber = (value) => Math.floor(Math.random() * value);
 
 backgroundButton.onclick = () => {
+  const colors = [
+    '#E7C950',
+    '#D4AC0D',
+    '#884EA0',
+    '#7F8C8D',
+    '#AF601A',
+    '#5499C7'
+  ];
   document.body.style.backgroundColor = colors[getRandomNumber(colors.length)];
 };

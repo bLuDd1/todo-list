@@ -16,6 +16,12 @@ h1 {
     width: 100%;
 }
 
+
+#add-task {
+    margin-left: 10px;
+    height: 100px;
+}
+
 .todo-container {
     display: flex;
     width: 500px;
