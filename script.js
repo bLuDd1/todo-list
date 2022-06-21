@@ -67,11 +67,6 @@ const fillTodosCont = () => {
 
 fillTodosCont();
 
-const coupleFunctions = () => {
-  updateStorage();
-  fillTodosCont();
-};
-
 const completeTask = (index) => {
   tasks[index].completed = !tasks[index].completed;
   if (tasks[index].completed) {
@@ -79,21 +74,24 @@ const completeTask = (index) => {
   } else {
     todoElems[index].classList.remove('checked');
   }
-  coupleFunctions();
+  updateStorage();
+  fillTodosCont();
 };
 
 const deleteTask = (index) => {
   todoElems[index].classList.add('delition');
   setTimeout(() => {
     tasks.splice(index, 1);
-    coupleFunctions();
+    updateStorage();
+    fillTodosCont();
   }, 500);
 };
 
 // Adding new tasks to array
 addTask.onclick = () => {
   tasks.push(new Task(descriptionTask.value, dateInput.value, timeInput.value));
-  coupleFunctions();
+  updateStorage();
+  fillTodosCont();
   descriptionTask.value = '';
   dateInput.value = '';
   timeInput.value = '';
