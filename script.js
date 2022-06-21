@@ -92,9 +92,11 @@ const deleteTask = (index) => {
 
 // Adding new tasks to array
 addTask.onclick = () => {
-  tasks.push(new Task(descriptionTask.value));
+  tasks.push(new Task(descriptionTask.value, dateInput.value, timeInput.value));
   coupleFunctions();
   descriptionTask.value = '';
+  dateInput.value = '';
+  timeInput.value = '';
 };
 
 const zeroFormat = (value) => {

@@ -103,3 +103,8 @@ h1 {
         opacity: 0;
     }
 }
+
+#date-output {
+    margin-right: 5px;
+    margin-left: 5px;
+}
