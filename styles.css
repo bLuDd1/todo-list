@@ -72,7 +72,7 @@ h1 {
     opacity: 0.5;
 }
 
-.tasks-items.delition {
+.tasks-items.deletion {
     animation: opacity 1s ease-in-out;
 }
 
@@ -113,4 +113,12 @@ h1 {
 #date-output {
     margin-right: 5px;
     margin-left: 5px;
+}
+
+.today-greeting {
+    font-size: 30px;
+}
+
+#select {
+    width: 410px;
 }

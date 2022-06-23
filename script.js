@@ -20,11 +20,12 @@ let todoElems = [];
 
 // Creating new tasks
 class Task {
-  constructor(description, date, time) {
+  constructor(description, date, time, category) {
     this.description = description;
     this.completed = false;
     this.date = date;
     this.time = time;
+    this.category = category;
   }
 }
 
@@ -45,6 +46,7 @@ const createTemplate = (task, index) =>
                 </div>
                 <div id="date-output">${task.date}</div>
                 <div id="time-output">${task.time}</div>
+                <div id="chosen-catogory">${task.category}</div>
             </div>`
   ;
 
@@ -79,7 +81,7 @@ const completeTask = (index) => {
 };
 
 const deleteTask = (index) => {
-  todoElems[index].classList.add('delition');
+  todoElems[index].classList.add('deletion');
   setTimeout(() => {
     tasks.splice(index, 1);
     updateStorage();
@@ -96,12 +98,17 @@ const resetInputs = () => {
 
 // Adding new tasks to array
 addTask.onclick = () => {
-  tasks.push(new Task(descriptionTask.value, dateInput.value, timeInput.value));
+  tasks.push(new Task(
+    descriptionTask.value,
+    dateInput.value,
+    timeInput.value)
+  );
   updateStorage();
   fillTodosCont();
   resetInputs();
 };
 
+// Needs to show the correct date
 const zeroFormat = (value) => {
   if (value < 10) { // Dates and months that starts with '0'
     value = '0' + value;
@@ -139,6 +146,7 @@ currentDay.innerHTML = getCurrentDay();
 
 const getRandomNumber = (value) => Math.floor(Math.random() * value);
 
+// Change background color
 backgroundButton.onclick = () => {
   const colors = [
     '#E7C950',
