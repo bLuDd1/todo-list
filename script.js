@@ -8,6 +8,7 @@ const currentDay = document.querySelector('.current-day');
 const dateInput = document.getElementById('date');
 const timeInput = document.getElementById('time');
 const backgroundButton = document.getElementById('button-background');
+const selectCategory = document.getElementById('select');
 
 let tasks;
 if (!localStorage.tasks) {
@@ -46,7 +47,7 @@ const createTemplate = (task, index) =>
                 </div>
                 <div id="date-output">${task.date}</div>
                 <div id="time-output">${task.time}</div>
-                <div id="chosen-catogory">${task.category}</div>
+                <div id="chosen-category">${task.category}</div>
             </div>`
   ;
 
@@ -101,7 +102,8 @@ addTask.onclick = () => {
   tasks.push(new Task(
     descriptionTask.value,
     dateInput.value,
-    timeInput.value)
+    timeInput.value,
+    selectCategory.value)
   );
   updateStorage();
   fillTodosCont();
