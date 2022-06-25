@@ -101,15 +101,6 @@ h1 {
     border-radius: 5px;
 }
 
-@keyframes opacity {
-    from {
-        opacity: 1;
-    }
-    to {
-        opacity: 0;
-    }
-}
-
 #date-output {
     margin-right: 5px;
     margin-left: 5px;
@@ -125,4 +116,17 @@ h1 {
 
 #chosen-category {
     margin-left: 5px;
+}
+
+.todos-container.deletion {
+    animation: opacity 1s ease-in-out;
+}
+
+@keyframes opacity {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
 }

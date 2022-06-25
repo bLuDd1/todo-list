@@ -9,6 +9,7 @@ const dateInput = document.getElementById('date');
 const timeInput = document.getElementById('time');
 const backgroundButton = document.getElementById('button-background');
 const selectCategory = document.getElementById('select');
+const deleteAll = document.getElementById('delete-all');
 
 let tasks;
 
@@ -130,7 +131,7 @@ const getCurrentDate = () => {
   const currentDate = new Date();
   const day = zeroFormat(currentDate.getDate());
   const month = zeroFormat(currentDate.getMonth() + 1);
-  const year = zeroFormat(currentDate.getFullYear());
+  const year = currentDate.getFullYear();
   return day + '.' + month + '.' + year;
 };
 
@@ -170,3 +171,15 @@ const colors = [
 backgroundButton.onclick = () => {
   document.body.style.backgroundColor = colors[getRandomNumber(colors.length)];
 };
+
+const deleteAllTasks = (index) => {
+  todosContainer.classList.add('deletion');
+  setTimeout(() => {
+    tasks.splice(index, tasks.length);
+    updateStorage();
+    fillTodosCont();
+    todosContainer.innerHTML = '';
+  }, 500);
+};
+
+deleteAll.onclick = deleteAllTasks;
