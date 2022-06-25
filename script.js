@@ -11,11 +11,16 @@ const backgroundButton = document.getElementById('button-background');
 const selectCategory = document.getElementById('select');
 
 let tasks;
-if (!localStorage.tasks) {
-  tasks = [];
-} else {
-  tasks = JSON.parse(localStorage.getItem('tasks'));
-}
+
+const checkTasks = () => {
+  if (!localStorage.tasks) {
+    tasks = [];
+  } else {
+    tasks = JSON.parse(localStorage.getItem('tasks'));
+  }
+};
+
+checkTasks();
 
 let todoElems = [];
 
@@ -71,11 +76,13 @@ const fillTodosCont = () => {
 fillTodosCont();
 
 const completeTask = (index) => {
-  tasks[index].completed = !tasks[index].completed;
-  if (tasks[index].completed) {
-    todoElems[index].classList.add('checked');
+  const task = tasks[index];
+  const todoElem = todoElems[index];
+  task.completed = !task.completed;
+  if (task.completed) {
+    todoElem.classList.add('checked');
   } else {
-    todoElems[index].classList.remove('checked');
+    todoElem.classList.remove('checked');
   }
   updateStorage();
   fillTodosCont();
@@ -129,16 +136,17 @@ const getCurrentDate = () => {
 
 currentDate.innerHTML = getCurrentDate();
 
+const days = [
+  'Sunday',
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Thursday',
+  'Friday',
+  'Saturday'
+];
+
 const getCurrentDay = () => {
-  const days = [
-    'Sunday',
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday'
-  ];
   const date = new Date();
   const currentDay = date.getDay();
   return days[currentDay];
@@ -146,17 +154,19 @@ const getCurrentDay = () => {
 
 currentDay.innerHTML = getCurrentDay();
 
-const getRandomNumber = (value) => Math.floor(Math.random() * value);
+const getRandomNumber = (value) => Math.round(Math.random() * value);
 
 // Change background color
+
+const colors = [
+  '#E7C950',
+  '#D4AC0D',
+  '#884EA0',
+  '#7F8C8D',
+  '#AF601A',
+  '#5499C7'
+];
+
 backgroundButton.onclick = () => {
-  const colors = [
-    '#E7C950',
-    '#D4AC0D',
-    '#884EA0',
-    '#7F8C8D',
-    '#AF601A',
-    '#5499C7'
-  ];
   document.body.style.backgroundColor = colors[getRandomNumber(colors.length)];
 };
