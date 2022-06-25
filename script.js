@@ -107,15 +107,19 @@ const resetInputs = () => {
 
 // Adding new tasks to array
 addTask.onclick = () => {
-  tasks.push(new Task(
-    descriptionTask.value,
-    dateInput.value,
-    timeInput.value,
-    selectCategory.value)
-  );
-  updateStorage();
-  fillTodosCont();
-  resetInputs();
+  if (descriptionTask.value !== '') {
+    tasks.push(new Task(
+      descriptionTask.value,
+      dateInput.value,
+      timeInput.value,
+      selectCategory.value)
+    );
+    updateStorage();
+    fillTodosCont();
+    resetInputs();
+  } else {
+    alert('Enter your task!');
+  }
 };
 
 // Needs to show the correct date
@@ -161,10 +165,10 @@ const getRandomNumber = (value) => Math.round(Math.random() * value);
 
 const colors = [
   '#E7C950',
-  '#D4AC0D',
+  '#930D1F',
   '#884EA0',
   '#7F8C8D',
-  '#AF601A',
+  '#0E760E',
   '#5499C7'
 ];
 
@@ -183,3 +187,4 @@ const deleteAllTasks = (index) => {
 };
 
 deleteAll.onclick = deleteAllTasks;
+
