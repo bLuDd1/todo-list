@@ -6,6 +6,7 @@ A simple task manager built on JavaScript
 ## Features
 
 You can change background randomly colour, if you do not like default colour.
+
 Then it shows current date.
 
 
