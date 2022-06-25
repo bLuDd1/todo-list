@@ -114,7 +114,7 @@ const alerts = [
 
 const validation = (...args) => {
   for (let i = 0; i < alerts.length; i++) {
-    if (!args[i] || args[i] instanceof Date) {
+    if (!args[i]) {
       alert(alerts[i]);
       return false;
     }
