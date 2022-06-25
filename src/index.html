@@ -15,15 +15,14 @@
         <div class="current-date"> </div>
         <div class="todo-container">
             <div class="input-container">
-                <input type="text" id="task" class="task-input">
-                <input type="date" id="date" class="task-input">
-                <input type="time" id="time" class="task-input">
-                <select id="select" class="task-input">
+                <label for="task"></label><input type="text" id="task" class="task-input">
+                <label for="date"></label><input type="date" id="date" class="task-input">
+                <label for="time"></label><input type="time" id="time" class="task-input">
+                <label for="select"></label><select id="select" class="task-input">
                     <option>Choose category</option>
                     <option id="option" value="Personal">Personal</option>
                     <option value="Working">Working</option>
-                    </optgroup>
-                </select>
+            </select>
             </div>
             <div class="button-container">
                 <button id="add-task">Add task</button>
