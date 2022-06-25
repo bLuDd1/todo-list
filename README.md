@@ -1,8 +1,7 @@
 # To-Do List
 
 A simple task manager built on pure JavaScript.
-<img width="1440" alt="image" src="https://user-images.githubusercontent.com/90006654/175792355-b57a6c26-a8d9-4672-98eb-5e5d7692a662.png">
-
+<img width="1440" alt="image" src="https://user-images.githubusercontent.com/90006654/175793038-881316cc-1acc-414b-988d-1dca3e1331b8.png">
 ## Usage
 
 You can change background randomly colour, if you do not like default colour.
