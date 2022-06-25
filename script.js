@@ -105,12 +105,21 @@ const resetInputs = () => {
   }
 };
 
-const validation = (description, date, time, category) => {
-  if ('' === description) alert('Enter your task!');
-  else if (date === '') alert('Enter correct date!');
-  else if (time === '') alert('Enter correct time!');
-  else if (category === '' || category === 'Choose category') alert('Choose category!');
-  else return true;
+const alerts = [
+  'Enter your task!',
+  'Enter correct date!',
+  'Enter correct time!',
+  'Choose category!'
+];
+
+const validation = (...args) => {
+  for (let i = 0; i < alerts.length; i++) {
+    if (!args[i] || args[i] instanceof Date) {
+      alert(alerts[i]);
+      return false;
+    }
+  }
+  return true;
 };
 
 // Adding new tasks to array
