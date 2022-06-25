@@ -105,21 +105,29 @@ const resetInputs = () => {
   }
 };
 
+const validation = (description, date, time, category) => {
+  if ('' === description) alert('Enter your task!');
+  else if (date === '') alert('Enter correct date!');
+  else if (time === '') alert('Enter correct time!');
+  else if (category === '' || category === 'Choose category') alert('Choose category!');
+  else return true;
+};
+
 // Adding new tasks to array
 addTask.onclick = () => {
-  if (descriptionTask.value !== '') {
+  if (validation(descriptionTask.value,
+    dateInput.value,
+    timeInput.value,
+    selectCategory.value))
     tasks.push(new Task(
       descriptionTask.value,
       dateInput.value,
       timeInput.value,
       selectCategory.value)
     );
-    updateStorage();
-    fillTodosCont();
-    resetInputs();
-  } else {
-    alert('Enter your task!');
-  }
+  updateStorage();
+  fillTodosCont();
+  resetInputs();
 };
 
 // Needs to show the correct date
