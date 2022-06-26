@@ -4,7 +4,7 @@ A simple task manager built on pure JavaScript.
 <img width="1440" alt="image" src="https://user-images.githubusercontent.com/90006654/175817105-18dfe94d-8f12-4ff3-8cba-8d672c31ec60.png">
 ## Usage
 
-You can change background randomly colour, if you do not like default colour.
+You can change background randomly color, if you do not like default color.
 
 <img width="1440" alt="image" src="https://user-images.githubusercontent.com/90006654/175817214-96294206-2d45-4a7c-99b7-d9f08f26013e.png">
 
@@ -31,4 +31,4 @@ or
 
 You can clone this repository: `git clone https://github.com/bLuDd1/todo-list`
 
-Then open it and type `node server.js`.
+Then open `index.html` in your IDE.
