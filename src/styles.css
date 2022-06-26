@@ -68,6 +68,10 @@ h1 {
 
 .tasks-items {
     display: flex;
+    
+    align-items: center;
+    justify-content: space-between;
+    
     width: 500px;
     min-height: 20px;
     border: 1px solid black;
