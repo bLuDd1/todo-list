@@ -43,17 +43,15 @@ const updateStorage = () => {
 // Shows tasks at page screen
 const createTemplate = (task, index) =>
   `<div class="tasks-items ${task.completed ? 'checked' : ''}">
-                <div class="description">${task.description}</div>
-                <div class="buttons">
-                    <input onclick="completeTask(${index})" 
+                <input onclick="completeTask(${index})" 
                     class="btn-complete" type="checkbox" 
                     ${task.completed ? 'checked' : ''}>
-                    <button onclick="deleteTask(${index})" 
-                    class="btn-delete">Delete</button>
-                </div>
+                <div class="description">${task.description}</div>
                 <div id="date-output">${task.date}</div>
                 <div id="time-output">${task.time}</div>
                 <div id="chosen-category">${task.category}</div>
+                <button onclick="deleteTask(${index})" 
+                    class="btn-delete">Delete</button>
             </div>`
   ;
 
