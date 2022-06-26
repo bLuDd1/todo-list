@@ -56,8 +56,8 @@ h1 {
     justify-content: flex-end;
 }
 
-.buttons button {
-    width: 80%;
+.btn-delete {
+    width: 50px;
     background-color: azure;
     color: gray;
     outline: none;
@@ -68,10 +68,8 @@ h1 {
 
 .tasks-items {
     display: flex;
-    
     align-items: center;
     justify-content: space-between;
-    
     width: 500px;
     min-height: 20px;
     border: 1px solid black;
@@ -167,7 +165,7 @@ h1 {
 }
 
 #button-background {
-    width: 90px;
+    width: 200px;
     background-color: azure;
     color: gray;
     outline: none;
